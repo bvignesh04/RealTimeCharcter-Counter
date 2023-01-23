@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealTimeCharacter Counter</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            background: url(https://images.unsplash.com/photo-1613375920388-f1f70f341f8a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c29saWQlMjBiYWNrZ3JvdW5kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60);
+        }
+
+        .container{
+            background-color:brown;
+            background-size:cover;
+            padding: 20px 40px;
+            box-shadow: 0 2px 2px;
+            border-radius: 5px;
+            margin: 5px;
+            width: 400px;
+        }
+
+        .textarea{
+            resize: none;
+            display: block;
+            width: 100%;
+            font-size: 15px;
+            font-family: sans-serif;
+            height: 100px;
+            box-sizing: border-box;
+            border: 1px solid darkgrey;
+        }
+
+        .counter{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .counter h4{
+            font-size: 15px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>RealTimeCharacter Counter</h2>
+        <textarea class="textarea" id="textarea" placeholder="Please Write your comments..." maxlength="50"></textarea>
+        <div class="counter">
+            <h4>Total Character: <span id="totalchar" class="value">30</span></h4>
+            <h4>Remaining: <span id="remainingchar" class="value">20</span></h4>
+
+        </div>
+    </div>
+
+    <script>
+       let textareaEl = document.getElementById('textarea') 
+       let totalCharEl = document.getElementById('totalchar')
+       let remainingCharEl = document.getElementById('remainingchar')
+
+       textareaEl.addEventListener('keyup',()=>{
+        updateTextArea()
+       })
+
+       function updateTextArea (){
+        totalCharEl.innerText =  textareaEl.value.length;
+        remainingCharEl.innerText = textareaEl.getAttribute('maxlength') - textareaEl.value.length
+       }
+
+
+        
+    </script>
+    
+</body>
+</html>
